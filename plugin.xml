@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="com.hls.plugins.barcode" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>barcode</name>
+  <description>hls barcode cordova plugin</description>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <dependency id="cordova-plugin-compat"></dependency>
+  
+  <js-module src="www/barcode.js">
+    <clobbers target="com.hls.plugins.barcode" />
+  </js-module>
+
+  <platform name="android">
+	<hook type="after_plugin_add" src="scripts/android-install.js" />
+    <hook type="after_plugin_install" src="scripts/android-install.js" />
+    <hook type="before_plugin_rm" src="scripts/android-install.js" />
+    <hook type="before_plugin_uninstall" src="scripts/android-install.js" />
+  
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Barcode">
+        <param name="android-package" value="com.hls.plugins.barcode.BarcodePlugin"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+		<activity
+            android:name="com.hls.plugins.barcode.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+		<activity android:name="com.hls.plugins.barcode.activity.NetWorkErrorActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.hls.plugins.barcode.activity.UnOpenWebActivity" android:screenOrientation="portrait" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+    	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		<uses-permission android:name="android.permission.INTERNET" />
+		<uses-permission android:name="android.permission.CAMERA" />
+		<uses-permission android:name="android.permission.FLASHLIGHT" />
+		<uses-permission android:name="android.permission.VIBRATE" />
+		<uses-feature android:name="android.hardware.camera" android:required="true"/>
+		<uses-feature android:name="android.hardware.camera.autofocus" />
+    </config-file>
+
+    <source-file src="src/android/libs/arm64-v8a/libzbar.so" target-dir="libs/arm-v8a"/>
+    <source-file src="src/android/libs/armeabi/libzbar.so" target-dir="libs/armeabi"/>
+    <source-file src="src/android/libs/armeabi-v7a/libzbar.so" target-dir="libs/armeabi-v7a"/>
+    <source-file src="src/android/libs/x86/libzbar.so" target-dir="libs/x86"/>
+    <source-file src="src/android/libs/x86_64/libzbar.so" target-dir="libs/x86_64"/>
+    <source-file src="src/android/src/com/hls/plugins/barcode/BarcodePlugin.java" target-dir="src/com/hls/plugins/barcode"/>
+    <source-file src="src/android/src/com/hls/plugins/barcode/CaptureActivity.java" target-dir="src/com/hls/plugins/barcode"/>
+    <source-file src="src/android/src/com/hls/plugins/barcode/ZbarManager.java" target-dir="src/com/zbar/lib"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/camera/AutoFocusCallback.java" target-dir="src/com/hls/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/camera/CameraConfigurationManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/camera/CameraManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/camera/FlashlightManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/camera/PreviewCallback.java" target-dir="src/com/hls/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/decode/CaptureActivityHandler.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/decode/DecodeHandler.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/decode/DecodeThread.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/decode/FinishListener.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/decode/InactivityTimer.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+	
+	<source-file src="src/android/src/com/hls/plugins/barcode/activity/DialogToast.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/activity/IUnOpenWebActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/activity/NetWorkErrorActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/activity/UnOpenWebActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/activity/UnOpenWebActivityPresenter.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	
+	<source-file src="src/android/src/com/hls/plugins/barcode/bean/ArgsBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/bean/ArgsBiz.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/bean/CodeInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/bean/HttpInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/bean/PageInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	
+	<source-file src="src/android/src/com/hls/plugins/barcode/http/HttpManager.java" target-dir="src/com/hls/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/http/HttpUtil.java" target-dir="src/com/hls/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/http/ResultCallback.java" target-dir="src/com/hls/plugins/barcode/http"/>
+	
+	<source-file src="src/android/src/com/hls/plugins/barcode/Util/Util.java" target-dir="src/com/hls/plugins/barcode/Util"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/Util/NoSSLv3SocketFactory.java" target-dir="src/com/hls/plugins/barcode/Util"/>
+
+	<source-file src="src/android/src/com/hls/plugins/barcode/CapturePresenter.java" target-dir="src/com/hls/plugins/barcode"/>
+	<source-file src="src/android/src/com/hls/plugins/barcode/ICaptureActivity.java" target-dir="src/com/hls/plugins/barcode"/>
+	
+	
+	
+	<source-file src="src/android/res/drawable/corner_input.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_input_pressed.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_textview.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_textview_pressed.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/progress_custom_bg.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/selector_input.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/selector_open_web.xml" target-dir="res/drawable"/>
+	
+	<source-file src="src/android/res/drawable-hdpi/cancel.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/network_error.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/pc.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/pen.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/btn_back.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/input.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/tip.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/light.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/light_close.png" target-dir="res/drawable-hdpi"/>
+
+	<source-file src="src/android/res/layout/activity_network_error.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/layout/activity_unopen_web.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/layout/dialog_cancel_layout.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/values/dialog_style.xml" target-dir="res/values"/>
+	
+	<source-file src="src/android/res/drawable-xhdpi/btn_flash.xml" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/capture.9.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/common_titlebar_btn_back_light.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/common_titlebar_btn_back_light_pressed.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/kakalib_scan_ray.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/qrcode_ligth_on_normal.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/qrcode_ligth_on_pressed.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/drawable-xhdpi/scan_line.png" target-dir="res/drawable-xhdpi"/>
+	<source-file src="src/android/res/layout/activity_qr_scan.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/values/ids.xml" target-dir="res/values"/>
+	<source-file src="src/android/res/raw/beep.ogg" target-dir="res/raw"/>
+	
+  </platform>
+  
+  <platform name="ios">
+		<config-file target="config.xml" parent="/widget">
+			<feature name="Barcode">
+				<param name="ios-package" value="CDVBarcodeScanner" />
+			</feature>
+		</config-file>
+        <config-file target="*-Info.plist"  parent="NSCameraUsageDescription">
+            <string>Whether or not allowed?</string>
+        </config-file>
+        <config-file target="*-Info.plist"  parent="NSPhotoLibraryUsageDescription">
+            <string>Whether or not allowed?</string>
+        </config-file>
+
+		<resource-file src="src/ios/res/BarcodeScannerViewController.xib" />
+		<resource-file src="src/ios/res/beep.wav" />
+		<resource-file src="src/ios/res/scan_1@2x.png" />
+		<resource-file src="src/ios/res/scan_2@2x.png" />
+		<resource-file src="src/ios/res/scan_3@2x.png" />
+		<resource-file src="src/ios/res/scan_4@2x.png" />
+		
+        <resource-file src="src/ios/res/hly_alertimg@2x.png" />
+        <resource-file src="src/ios/res/hly_alertimg@3x.png" />
+        <resource-file src="src/ios/res/hly_backimg@2x.png" />
+        <resource-file src="src/ios/res/hly_backimg@3x.png" />
+        <resource-file src="src/ios/res/hly_handwork@2x.png" />
+        <resource-file src="src/ios/res/hly_handwork@3x.png" />
+        
+        <resource-file src="src/ios/res/hly_line_scan@2x.png" />
+        
+        <resource-file src="src/ios/res/light_close@2x.png" />
+        <resource-file src="src/ios/res/light_close@3x.png" />
+        <resource-file src="src/ios/res/light_open@2x.png" />
+        <resource-file src="src/ios/res/light_open@3x.png" />
+        
+        <resource-file src="src/ios/res/hly_write.png" />
+        <resource-file src="src/ios/res/hly_net.png" />
+        <resource-file src="src/ios/res/hly_pc.png" />
+        
+		<header-file src="src/ios/src/BarcodeScannerViewController.h" />
+		<source-file src="src/ios/src/BarcodeScannerViewController.m" />
+		<header-file src="src/ios/src/CDVBarcodeScanner.h" />
+		<source-file src="src/ios/src/CDVBarcodeScanner.m" />
+        
+        <header-file src="src/ios/src/CustomScanView.h" />
+        <source-file src="src/ios/src/CustomScanView.m" />
+        <header-file src="src/ios/src/Reachability.h" />
+        <source-file src="src/ios/src/Reachability.m" />
+    
+        <header-file src="src/ios/src/UIView+Toast.h" />
+        <source-file src="src/ios/src/UIView+Toast.m" />
+        <header-file src="src/ios/src/HLYCustomButton.h" />
+        <source-file src="src/ios/src/HLYCustomButton.m" />
+	</platform>
+
+</plugin>

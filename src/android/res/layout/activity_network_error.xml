@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#000000">
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="44dp"
+    >
+    <ImageView
+      android:id="@+id/imgBtnBack"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:background="#00000000"
+      android:clickable="true"
+      android:src="@drawable/btn_back" />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@android:color/white"
+      android:textSize="22sp"
+      android:layout_centerInParent="true"
+      android:text="扫一扫"
+      />
+  </RelativeLayout>
+  <ImageView
+    android:id="@+id/img_network_error"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:adjustViewBounds="true"
+    android:src="@drawable/network_error"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="130dp"
+    />
+  <TextView
+    android:id="@+id/txt_tipNetworkError"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textColor="@android:color/white"
+    android:text="当前网络不可用，请检查网络设置"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="40dp"
+    android:layout_below="@+id/img_network_error"
+    />
+  <TextView
+    android:id="@+id/txt_tip1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="38dp"
+    android:textColor="@android:color/white"
+    android:text="123"
+    android:textSize="15sp" />
+
+  <TextView
+    android:id="@+id/txt_tip2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="20dp"
+    android:textColor="@android:color/white"
+    android:text="456"
+    android:textSize="15sp" />
+</RelativeLayout>
