@@ -19,7 +19,7 @@ module.exports = function (context) {
         return ;
     }
 
-    var targetDir  = path.join(projectRoot, "platforms", "android", "src", "com", "hls", "plugins", "barcode");
+    var targetDir  = path.join(projectRoot, "platforms", "android", "src", "com", "jieweifu", "plugins", "barcode");
 	var targetFiles = ["CaptureActivity.java", "decode/DecodeHandler.java", "decode/CaptureActivityHandler.java","activity/DialogToast.java","activity/NetWorkErrorActivity.java","activity/UnOpenWebActivity.java"];
 	
     if (['after_plugin_add', 'after_plugin_install', 'after_platform_add'].indexOf(context.hook) === -1) {

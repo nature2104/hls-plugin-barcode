@@ -12,7 +12,7 @@ cordova plugin add https://github.com/MrLiZ/HuiLianYi-barCode.git
 
 ## JS 
 ``` js
-com.hls.plugins.barcode.startScan({
+com.jieweifu.plugins.barcode.startScan({
         message:{
                 barTitle:'标题栏文案',
                 explainFlag: false,//是否显示说明按钮

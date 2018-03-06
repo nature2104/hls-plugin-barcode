@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<plugin id="com.hls.plugins.barcode" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="com.jieweifu.plugins.barcode" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
   <name>barcode</name>
-  <description>hls barcode cordova plugin</description>
+  <description>JieWeiFu barcode cordova plugin</description>
 
   <engines>
     <engine name="cordova" version=">=3.4.0"/>
@@ -10,7 +10,7 @@
   <dependency id="cordova-plugin-compat"></dependency>
   
   <js-module src="www/barcode.js">
-    <clobbers target="com.hls.plugins.barcode" />
+    <clobbers target="com.jieweifu.plugins.barcode" />
   </js-module>
 
   <platform name="android">
@@ -21,18 +21,18 @@
   
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Barcode">
-        <param name="android-package" value="com.hls.plugins.barcode.BarcodePlugin"/>
+        <param name="android-package" value="com.jieweifu.plugins.barcode.BarcodePlugin"/>
       </feature>
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
 		<activity
-            android:name="com.hls.plugins.barcode.CaptureActivity"
+            android:name="com.jieweifu.plugins.barcode.CaptureActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar" >
         </activity>
-		<activity android:name="com.hls.plugins.barcode.activity.NetWorkErrorActivity" android:screenOrientation="portrait" />
-        <activity android:name="com.hls.plugins.barcode.activity.UnOpenWebActivity" android:screenOrientation="portrait" />
+		<activity android:name="com.jieweifu.plugins.barcode.activity.NetWorkErrorActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.jieweifu.plugins.barcode.activity.UnOpenWebActivity" android:screenOrientation="portrait" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
@@ -50,41 +50,41 @@
     <source-file src="src/android/libs/armeabi-v7a/libzbar.so" target-dir="libs/armeabi-v7a"/>
     <source-file src="src/android/libs/x86/libzbar.so" target-dir="libs/x86"/>
     <source-file src="src/android/libs/x86_64/libzbar.so" target-dir="libs/x86_64"/>
-    <source-file src="src/android/src/com/hls/plugins/barcode/BarcodePlugin.java" target-dir="src/com/hls/plugins/barcode"/>
-    <source-file src="src/android/src/com/hls/plugins/barcode/CaptureActivity.java" target-dir="src/com/hls/plugins/barcode"/>
-    <source-file src="src/android/src/com/hls/plugins/barcode/ZbarManager.java" target-dir="src/com/zbar/lib"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/camera/AutoFocusCallback.java" target-dir="src/com/hls/plugins/barcode/camera"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/camera/CameraConfigurationManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/camera/CameraManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/camera/FlashlightManager.java" target-dir="src/com/hls/plugins/barcode/camera"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/camera/PreviewCallback.java" target-dir="src/com/hls/plugins/barcode/camera"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/decode/CaptureActivityHandler.java" target-dir="src/com/hls/plugins/barcode/decode"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/decode/DecodeHandler.java" target-dir="src/com/hls/plugins/barcode/decode"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/decode/DecodeThread.java" target-dir="src/com/hls/plugins/barcode/decode"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/decode/FinishListener.java" target-dir="src/com/hls/plugins/barcode/decode"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/decode/InactivityTimer.java" target-dir="src/com/hls/plugins/barcode/decode"/>
+    <source-file src="src/android/src/com/jieweifu/plugins/barcode/BarcodePlugin.java" target-dir="src/com/jieweifu/plugins/barcode"/>
+    <source-file src="src/android/src/com/jieweifu/plugins/barcode/CaptureActivity.java" target-dir="src/com/jieweifu/plugins/barcode"/>
+    <source-file src="src/android/src/com/jieweifu/plugins/barcode/ZbarManager.java" target-dir="src/com/zbar/lib"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/camera/AutoFocusCallback.java" target-dir="src/com/jieweifu/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/camera/CameraConfigurationManager.java" target-dir="src/com/jieweifu/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/camera/CameraManager.java" target-dir="src/com/jieweifu/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/camera/FlashlightManager.java" target-dir="src/com/jieweifu/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/camera/PreviewCallback.java" target-dir="src/com/jieweifu/plugins/barcode/camera"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/CaptureActivityHandler.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/DecodeHandler.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/DecodeThread.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/FinishListener.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/InactivityTimer.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
 	
-	<source-file src="src/android/src/com/hls/plugins/barcode/activity/DialogToast.java" target-dir="src/com/hls/plugins/barcode/activity"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/activity/IUnOpenWebActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/activity/NetWorkErrorActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/activity/UnOpenWebActivity.java" target-dir="src/com/hls/plugins/barcode/activity"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/activity/UnOpenWebActivityPresenter.java" target-dir="src/com/hls/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/DialogToast.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/IUnOpenWebActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/NetWorkErrorActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/UnOpenWebActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/UnOpenWebActivityPresenter.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
 	
-	<source-file src="src/android/src/com/hls/plugins/barcode/bean/ArgsBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/bean/ArgsBiz.java" target-dir="src/com/hls/plugins/barcode/bean"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/bean/CodeInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/bean/HttpInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/bean/PageInfoBean.java" target-dir="src/com/hls/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/ArgsBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/ArgsBiz.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/CodeInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/HttpInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/PageInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
 	
-	<source-file src="src/android/src/com/hls/plugins/barcode/http/HttpManager.java" target-dir="src/com/hls/plugins/barcode/http"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/http/HttpUtil.java" target-dir="src/com/hls/plugins/barcode/http"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/http/ResultCallback.java" target-dir="src/com/hls/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/HttpManager.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/HttpUtil.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/ResultCallback.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
 	
-	<source-file src="src/android/src/com/hls/plugins/barcode/Util/Util.java" target-dir="src/com/hls/plugins/barcode/Util"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/Util/NoSSLv3SocketFactory.java" target-dir="src/com/hls/plugins/barcode/Util"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/Util/Util.java" target-dir="src/com/jieweifu/plugins/barcode/Util"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/Util/NoSSLv3SocketFactory.java" target-dir="src/com/jieweifu/plugins/barcode/Util"/>
 
-	<source-file src="src/android/src/com/hls/plugins/barcode/CapturePresenter.java" target-dir="src/com/hls/plugins/barcode"/>
-	<source-file src="src/android/src/com/hls/plugins/barcode/ICaptureActivity.java" target-dir="src/com/hls/plugins/barcode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/CapturePresenter.java" target-dir="src/com/jieweifu/plugins/barcode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/ICaptureActivity.java" target-dir="src/com/jieweifu/plugins/barcode"/>
 	
 	
 	
